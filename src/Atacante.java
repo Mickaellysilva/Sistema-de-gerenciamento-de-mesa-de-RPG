@@ -1,2 +1,4 @@
-public class Atacante {
+public interface Atacante {
+
+    String atacar();
 }

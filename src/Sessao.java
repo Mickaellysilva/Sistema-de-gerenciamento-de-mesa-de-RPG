@@ -6,7 +6,7 @@ public class Sessao {
     private LocalDate data;
     private String descricao;
 
-    public Sessao(){};
+    public Sessao(){}
 
     public Sessao(int id, LocalDate data, String descricao) {
         this.id = id;

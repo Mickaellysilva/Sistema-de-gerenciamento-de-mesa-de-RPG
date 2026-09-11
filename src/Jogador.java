@@ -6,14 +6,14 @@ public class Jogador {
     private int id;
     private String nome;
 
-    private List<Personagem> personagem;
+    private List<Personagem> personagens = new ArrayList<>();
 
     public Jogador(){}
 
     public Jogador(int id, String nome){
         this.id = id;
         this.nome = nome;
-        this.personagem = new ArrayList<>();
+        this.personagens = new ArrayList<>();
     }
 
     public int getId() {
@@ -30,12 +30,12 @@ public class Jogador {
     }
 
     public void adicionarPersonagem(Personagem personagem){
-        this.personagem.add(personagem);
+        this.personagens.add(personagem);
     }
     public Personagem buscarPersonagem(int id){
-        for( int i = 0; i < this.personagem.size(); i++){
+        for( int i = 0; i < this.personagens.size(); i++){
 
-            Personagem p = this.personagem.get(i);
+            Personagem p = this.personagens.get(i);
 
             if(p.getId() == id){
                 return p;
@@ -44,15 +44,15 @@ public class Jogador {
         return  null;
     }
     public List<Personagem> listarPersonagens(){
-        return this.personagem;
+        return this.personagens;
     }
     public boolean removerPersonagem(int id){
-        for (int i = 0; i < this.personagem.size(); i++) {
+        for (int i = 0; i < this.personagens.size(); i++) {
 
-            Personagem p = this.personagem.get(i);
+            Personagem p = this.personagens.get(i);
 
             if(p.getId() == id){
-                this.personagem.remove(i);
+                this.personagens.remove(i);
                 return true;
             }
         }

@@ -8,7 +8,7 @@ public class Mago extends Personagem{
 
     @Override
     public String atacar(){
-        return "O mago realiza o ataque com força"+ this.inteligencia+ "!";
+        return "O mago realiza o ataque com inteligência "+ this.inteligencia+ "!";
     }
 }
 

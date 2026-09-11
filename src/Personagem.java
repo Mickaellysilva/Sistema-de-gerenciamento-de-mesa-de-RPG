@@ -1,18 +1,20 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Personagem {
     private int id;
     private String nome;
     private float nivel;
     private float vida;
 
-    //Atribuição de associação entre o Mentor e o Inventário
     private Personagem mentor;
-    private Item[] itens;
+    private List<Item> itens = new ArrayList<>();
+
     public Personagem(int id, String nome, float nivel, float vida) {
         this.id = id;
         this.nome = nome;
         this.nivel = nivel;
         this.vida = vida;
-        this.itens = new Item[10];
     }
 
     public int getId() {
@@ -31,7 +33,6 @@ public class Personagem {
         return vida;
     }
 
-    // Tipo de retorno especificado (Pernsoagem) e retorno da variável correta.
     public Personagem getMentor(){
         return this.mentor;
     }
@@ -48,9 +49,7 @@ public class Personagem {
         this.vida = vida;
     }
 
-    //métodos das classes.
-
-    public void receberDano(String dano){
+    public void receberDano(float dano){
         this.vida -= dano;
     }
 
@@ -58,14 +57,21 @@ public class Personagem {
         this.vida += valor;
     }
 
-    public  void adicionarItem(Item item){
+    public void adicionarItem(Item item){
+        this.itens.add(item);
     }
 
     public boolean removerItem(int id){
+        for (Item item : this.itens) {
+            if (item.getId() == id) {
+                this.itens.remove(item);
+                return true;
+            }
+        }
         return false;
     }
 
-    public Item[] listarItens(){
+    public List<Item> listarItens(){
         return this.itens;
     }
 
@@ -74,6 +80,6 @@ public class Personagem {
     }
 
     public String atacar(){
-        System.out.println("Ataque realizado!");
+        return "Ataque realizado!";
     }
 }
